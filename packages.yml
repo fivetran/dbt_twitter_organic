@@ -1,0 +1,2 @@
+packages:
+  - local: ../dbt_twitter_organic_source

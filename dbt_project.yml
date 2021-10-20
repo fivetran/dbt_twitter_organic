@@ -1,0 +1,9 @@
+name: 'twitter_organic'
+version: '0.1.0'
+config-version: 2
+require-dbt-version: ">=0.20.0"
+
+vars:
+  account_history: "{{ ref('stg_twitter_organic__account_history') }}"
+  organic_tweet_report: "{{ ref('stg_twitter_organic__organic_tweet_report') }}"
+  tweet: "{{ ref('stg_twitter_organic__tweet') }}"
