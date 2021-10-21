@@ -1,2 +1,3 @@
 packages:
-  - local: ../dbt_twitter_organic_source
+  # - local: ../dbt_twitter_organic_source
+  - git: "https://github.com/fivetran/dbt_twitter_organic_source"
