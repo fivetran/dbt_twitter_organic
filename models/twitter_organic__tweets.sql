@@ -27,6 +27,7 @@ joined as (
         tweet.organic_tweet_id,
         tweet.tweet_text,
         tweet.account_id,
+        tweet.post_url,
         account_history.account_name,
         organic_tweet_report.date_day,
         sum(organic_tweet_report.app_clicks) as app_clicks,
@@ -59,7 +60,7 @@ joined as (
         on tweet.account_id = account_history.account_id
     left join organic_tweet_report
         on tweet.organic_tweet_id = organic_tweet_report.organic_tweet_id
-    {{ dbt_utils.group_by(6) }}
+    {{ dbt_utils.group_by(7) }}
 
 )
 
