@@ -1,7 +1,7 @@
 with account_history as (
 
     select *
-    from {{ var('account_history') }}
+    from {{ var('account_history_staging') }}
     where is_most_recent_record = True
 
 ),
@@ -9,14 +9,14 @@ with account_history as (
 organic_tweet_report as (
 
     select *
-    from {{ var('organic_tweet_report') }}
+    from {{ var('organic_tweet_report_staging') }}
 
 ),
 
 tweet as (
 
     select *
-    from {{ var('tweet') }}
+    from {{ var('tweet_staging') }}
 
 ), 
 
