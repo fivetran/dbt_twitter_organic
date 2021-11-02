@@ -29,11 +29,8 @@ joined as (
         tweet.account_id,
         tweet.post_url,
         account_history.account_name,
-        organic_tweet_report.date_day
-        {{ fivetran_utils.source_relation(
-            union_schema_variable='twitter_organic_union_schemas', 
-            union_database_variable='twitter_organic_union_databases') 
-        }},
+        organic_tweet_report.date_day,
+        tweet.source_relation,
         sum(organic_tweet_report.app_clicks) as app_clicks,
         sum(organic_tweet_report.card_engagements) as card_engagements,
         sum(organic_tweet_report.carousel_swipes) as carousel_swipes,
