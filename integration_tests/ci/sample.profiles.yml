@@ -46,7 +46,7 @@ integration_tests:
     spark:
       type: spark
       method: http
-      schema: shopify_integration_tests
+      schema: twitter_organic_integration_tests
       host: "{{ env_var('CI_SPARK_DBT_HOST') }}"
       organization: "{{ env_var('CI_SPARK_DBT_ORGANIZATION') }}"
       token: "{{ env_var('CI_SPARK_DBT_TOKEN') }}"
