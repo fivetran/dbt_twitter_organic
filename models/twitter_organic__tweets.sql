@@ -20,6 +20,14 @@ tweet as (
 
 ), 
 
+users as (
+
+    select *
+    from {{ var('users_staging') }}
+    where is_most_recent_record = True
+
+),
+
 joined as (
 
     select
@@ -29,6 +37,8 @@ joined as (
         tweet.account_id,
         tweet.post_url,
         account_history.account_name,
+        users.user_id,
+        users.user_name,
         organic_tweet_report.date_day,
         tweet.source_relation,
         sum(organic_tweet_report.app_clicks) as app_clicks,
@@ -63,7 +73,10 @@ joined as (
     left join organic_tweet_report
         on tweet.organic_tweet_id = organic_tweet_report.organic_tweet_id
         and tweet.source_relation = organic_tweet_report.source_relation
-    {{ dbt_utils.group_by(8) }}
+    left join users
+        on tweet.user_id = users.user_id
+        and tweet.source_relation = users.source_relation
+    {{ dbt_utils.group_by(10) }}
 
 )
 
