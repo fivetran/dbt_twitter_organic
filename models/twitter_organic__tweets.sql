@@ -53,7 +53,6 @@ joined as (
         sum(organic_tweet_report.qualified_impressions) as qualified_impressions,
         sum(organic_tweet_report.replies) as replies,
         sum(organic_tweet_report.retweets) as retweets,
-        sum(organic_tweet_report.tweets_send) as tweets_send,
         sum(organic_tweet_report.unfollows) as unfollows,
         sum(organic_tweet_report.url_clicks) as url_clicks,
         sum(organic_tweet_report.video_15_s_views) as video_15_s_views,
