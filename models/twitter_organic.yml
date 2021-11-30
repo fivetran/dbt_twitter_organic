@@ -3,6 +3,12 @@ version: 2
 models:
   - name: twitter_organic__tweets
     description: Each record represents the daily performance of a tweet.
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - date_day
+            - organic_tweet_id
+            - source_relation
     columns:
       - name: created_timestamp
         description: Date and time when the tweet was created

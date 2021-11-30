@@ -8,3 +8,8 @@ vars:
   organic_tweet_report_staging: "{{ ref('stg_twitter_organic__organic_tweet_report') }}"
   tweet_staging: "{{ ref('stg_twitter_organic__tweet') }}"
   users_staging: "{{ ref('stg_twitter_organic__twitter_user_history') }}"
+
+models:
+  twitter_organic:
+    +schema: twitter_organic
+    +materialized: table

@@ -31,15 +31,15 @@ users as (
 joined as (
 
     select
-        tweet.created_timestamp,
+        organic_tweet_report.date_day,
         tweet.organic_tweet_id,
+        tweet.created_timestamp,
         tweet.tweet_text,
         tweet.account_id,
         tweet.post_url,
         account_history.account_name,
         users.user_id,
         users.user_name,
-        organic_tweet_report.date_day,
         tweet.source_relation,
         sum(organic_tweet_report.app_clicks) as app_clicks,
         sum(organic_tweet_report.card_engagements) as card_engagements,
