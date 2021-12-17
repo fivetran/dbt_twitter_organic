@@ -1,7 +1,7 @@
 with account_history as (
 
     select *
-    from {{ var('account_history_staging') }}
+    from {{ ref('int_twitter_organic__latest_account') }}
     where is_most_recent_record = True
 
 ),
@@ -23,7 +23,7 @@ tweet as (
 users as (
 
     select *
-    from {{ var('users_staging') }}
+    from {{ ref('int_twitter_organic__latest_user') }}
     where is_most_recent_record = True
 
 ),
