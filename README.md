@@ -25,7 +25,7 @@ packages:
 ```
 
 ## Package Maintenance
-The Fivetran team maintaining this package **only** maintains the latest version. We highly recommend you keep your `packages.yml` updated with the [dbt hub latest version](https://hub.getdbt.com/fivetran/twitter_organic/latest/). You may refer to the [CHANGELOG](/CHANGELOG.md) and release notes for more information on changes across versions.
+The Fivetran team maintaining this package **only** maintains the latest version. We recommend you keep your `packages.yml` updated with the [dbt hub latest version](https://hub.getdbt.com/fivetran/twitter_organic/latest/). You may refer to the [CHANGELOG](/CHANGELOG.md) and release notes for more information on changes across versions.
 
 ## Configuration
 By default, this package will look for your Twitter Organic data in the `twitter_organic` schema of your [target database](https://docs.getdbt.com/docs/running-a-dbt-project/using-the-command-line-interface/configure-your-profile). If this is not where your Twitter Organic data is, please add the following configuration to your `dbt_project.yml` file:
@@ -52,7 +52,7 @@ vars:
     ##You may set EITHER the schemas variables below
     twitter_organic_union_schemas: ['twitter_organic_one','twitter_organic_two']
 
-    ##Or may set EITHER the databases variables below
+    ##OR you may set EITHER the databases variables below
     twitter_organic_union_databases: ['twitter_organic_one','twitter_organic_two']
 ```
 ### Changing the Build Schema
@@ -72,7 +72,7 @@ models:
 
 ## Contributions
 
-Don't see a model or specific metric you would have liked to be included? Notice any bugs when installing and running the package? If so, we highly encourage and welcome contributions to this package! 
+Don't see a model or specific metric you would like to be included? Notice any bugs when installing and running the package? If so, we highly encourage and welcome contributions to this package! 
 Please create issues or open PRs against `main`. See [the Discourse post](https://discourse.getdbt.com/t/contributing-to-a-dbt-package/657) for information on how to contribute to a package.
 
 ## Database Support
