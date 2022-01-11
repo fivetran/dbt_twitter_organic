@@ -1,4 +1,4 @@
-[![Apache License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) ![dbt logo and version](https://img.shields.io/static/v1?logo=dbt&label=dbt-version&message=[>=0.20.0,<1.0.0]&color=orange)
+[![Apache License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 # Twitter Organic
 
 This package models Twitter Organic data from [Fivetran's connector](https://fivetran.com/docs/applications/twitter). It uses data in the format described by [this ERD](https://fivetran.com/docs/applications/twitter#schemainformation).
