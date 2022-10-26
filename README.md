@@ -1,4 +1,15 @@
-[![Apache License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+<p align="center">
+    <a alt="License"
+        href="https://github.com/fivetran/dbt_netsuite/blob/main/LICENSE">
+        <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" /></a>
+    <a alt="dbt-core">
+        <img src="https://img.shields.io/badge/dbt_Core™_version->=1.3.0_,<2.0.0-orange.svg" /></a>
+    <a alt="Maintained?">
+        <img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" /></a>
+    <a alt="PRs">
+        <img src="https://img.shields.io/badge/Contributions-welcome-blueviolet" /></a>
+</p>
+
 # Twitter Organic
 
 This package models Twitter Organic data from [Fivetran's connector](https://fivetran.com/docs/applications/twitter). It uses data in the format described by [this ERD](https://fivetran.com/docs/applications/twitter#schemainformation).
@@ -21,7 +32,7 @@ Include in your `packages.yml`
 ```yaml
 packages:
   - package: fivetran/twitter_organic
-    version: [">=0.1.0", "<0.2.0"]
+    version: [">=0.2.0", "<0.3.0"]
 ```
 
 ## Package Maintenance
@@ -69,7 +80,21 @@ models:
     twitter_organic_source:
       +schema: my_new_schema_name # leave blank for just the target_schema
 ```
+# 🔍 Does this package have dependencies?
+This dbt package is dependent on the following dbt packages. Please be aware that these dependencies are installed by default within this package. For more information on the following packages, refer to the [dbt hub](https://hub.getdbt.com/) site.
+> IMPORTANT: If you have any of these dependent packages in your own `packages.yml` file, we highly recommend that you remove them from your root `packages.yml` to avoid package version conflicts.
+    
+```yml
+packages:
+    - package: fivetran/twitter_organic_source
+      version: [">=0.2.0", "<0.3.0"]
 
+    - package: fivetran/fivetran_utils
+      version: [">=0.4.0", "<0.5.0"]
+
+    - package: dbt-labs/dbt_utils
+      version: [">=1.0.0", "<1.1.0"]
+```
 ## Contributions
 
 Don't see a model or specific metric you would like to be included? Notice any bugs when installing and running the package? If so, we highly encourage and welcome contributions to this package! 
