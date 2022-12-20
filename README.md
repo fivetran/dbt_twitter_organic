@@ -1,44 +1,86 @@
-[![Apache License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-# Twitter Organic
+<p align="center">
+    <a alt="License"
+        href="https://github.com/fivetran/dbt_twitter_organic/blob/main/LICENSE">
+        <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" /></a>
+    <a alt="dbt-core">
+        <img src="https://img.shields.io/badge/dbt_Core™_version->=1.3.0_,<2.0.0-orange.svg" /></a>
+    <a alt="Maintained?">
+        <img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" /></a>
+    <a alt="PRs">
+        <img src="https://img.shields.io/badge/Contributions-welcome-blueviolet" /></a>
+</p>
 
-This package models Twitter Organic data from [Fivetran's connector](https://fivetran.com/docs/applications/twitter). It uses data in the format described by [this ERD](https://fivetran.com/docs/applications/twitter#schemainformation).
+# Twitter Organic Modeling dbt Package ([Docs](https://fivetran.github.io/dbt_twitter_organic/))
 
-The main focus of the package is to transform the core social media object tables into analytics-ready models that can be easily unioned in to other social media platform packages to get a single view. This is especially easy using our [Social Media Reporting package](https://github.com/fivetran/dbt_social_media_reporting).
+# 📣 What does this dbt package do?
 
-## Models
+- Produces modeled tables that leverage Twitter Organic from [Fivetran's connector](https://fivetran.com/docs/applications/twitter) in the format described by [this ERD](https://fivetran.com/docs/applications/twitter#schemainformation) and builds off the output of our [Twitter Organic source package](https://github.com/fivetran/dbt_twitter_organic_source).
 
-This package contains transformation models, designed to work simultaneously with our [Twitter Organic source package](https://github.com/fivetran/dbt_twitter_organic_source) and our [multi-platform Social Media Reporting package](https://github.com/fivetran/dbt_social_media_reporting). A dependency on the source package is declared in this package's `packages.yml` file, so it will automatically download when you run `dbt deps`. The primary outputs of this package are described below.
+The main focus of the package is to transform the core social media object tables into analytics-ready models that can be easily unioned in to other social media platform packages to get a single view. This is aided by our [Social Media Reporting package](https://github.com/fivetran/dbt_social_media_reporting).
+
+This package also generates a comprehensive data dictionary of your source and modeled Twitter Organic data via the [dbt docs site](https://fivetran.github.io/dbt_twitter_organic/).
+
+You can also refer to the table below for a detailed view of all models materialized by default within this package.
 
 | **model**                    | **description**                                                                                                        |
 | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
 | [twitter_organic__tweets](https://github.com/fivetran/dbt_twitter_organic/blob/main/models/twitter_organic__tweets.sql)         | Each record represents the daily performance of a tweet. |
 
-## Installation Instructions
-Check [dbt Hub](https://hub.getdbt.com/) for the latest installation instructions, or [read the dbt docs](https://docs.getdbt.com/docs/package-management) for more information on installing packages.
+# 🎯 How do I use the dbt package?
+## Step 1: Pre-Requisites
+You will need to ensure you have the following before leveraging the dbt package.
+- **Connector**: Have the Fivetran Twitter Organic connector syncing data into your warehouse. 
+- **Database support**: This package has been tested on **BigQuery**, **Snowflake**, **Redshift**, **Databricks**, and **Postgres**. Ensure you are using one of these supported databases.
 
-Include in your `packages.yml`
+### Databricks Additional Configuration
+If you are using a Databricks destination with this package you will need to add the below (or a variation of the below) dispatch configuration within your root `dbt_project.yml`. This is required in order for the package to accurately search for macros within the `dbt-labs/spark_utils` then the `dbt-labs/dbt_utils` packages respectively.
+```yml
+dispatch:
+  - macro_namespace: dbt_utils
+    search_order: ['spark_utils', 'dbt_utils']
+```
+
+## Step 2: Installing the Package
+Include the following Twitter Organic package version in your `packages.yml`
+> Check [dbt Hub](https://hub.getdbt.com/) for the latest installation instructions, or [read the dbt docs](https://docs.getdbt.com/docs/package-management) for more information on installing packages.
 
 ```yaml
 packages:
   - package: fivetran/twitter_organic
-    version: [">=0.1.0", "<0.2.0"]
+    version: [">=0.2.0", "<0.3.0"]
 ```
 
-## Package Maintenance
-The Fivetran team maintaining this package **only** maintains the latest version. We recommend you keep your `packages.yml` updated with the [dbt hub latest version](https://hub.getdbt.com/fivetran/twitter_organic/latest/). You may refer to the [CHANGELOG](https://github.com/fivetran/dbt_twitter_organic/blob/main/CHANGELOG.md) and release notes for more information on changes across versions.
-
-## Configuration
-By default, this package will look for your Twitter Organic data in the `twitter_organic` schema of your [target database](https://docs.getdbt.com/docs/running-a-dbt-project/using-the-command-line-interface/configure-your-profile). If this is not where your Twitter Organic data is, please add the following configuration to your `dbt_project.yml` file:
+## Step 3: Configure Your Variables
+### Database and Schema Variables
+By default, this package will look for your Twitter Organic data in the `twitter_organic` schema of your [target database](https://docs.getdbt.com/docs/running-a-dbt-project/using-the-command-line-interface/configure-your-profile). If this is not where your Twitter Organic data is, add the following configuration to your `dbt_project.yml` file:
 
 ```yml
-# dbt_project.yml
-
-...
-config-version: 2
-
 vars:
     twitter_organic_schema: your_schema_name
     twitter_organic_database: your_database_name 
+```
+
+## (Optional) Step 4: Additional Configurations
+<details><summary>Expand for configurations</summary>
+
+### Change the Build Schema
+By default, this package builds the GitHub staging models within a schema titled (<target_schema> + `_stg_twitter_organic`) in your target database. If this is not where you would like your GitHub staging data to be written to, add the following configuration to your root `dbt_project.yml` file:
+
+```yml 
+models:
+    twitter_organic:
+      +schema: my_new_schema_name # leave blank for just the target_schema
+    twitter_organic_source:
+      +schema: my_new_schema_name # leave blank for just the target_schema
+```
+
+### Change the source table references
+If an individual source table has a different name than the package expects, add the table name as it appears in your destination to the respective variable:
+> IMPORTANT: See this project's [`dbt_project.yml`](https://github.com/fivetran/dbt_twitter_organic_source/blob/main/dbt_project.yml) variable declarations to see the expected names.
+    
+```yml
+vars:
+    twitter_organic_<default_source_table_name>_identifier: your_table_name 
 ```
 
 ### Unioning Multiple Twitter Organic Connectors
@@ -55,49 +97,43 @@ vars:
     ##OR you may set EITHER the databases variables below
     twitter_organic_union_databases: ['twitter_organic_one','twitter_organic_two']
 ```
-### Changing the Build Schema
+</details>
 
-By default, this package will build the Twitter Organic staging models within a schema titled (`<target_schema>` + `_stg_twitter_organic`) and the final Twitter Organic models within a schema titled (`<target_schema>` + `_twitter_organic`) in your target database. If this is not where you would like your Twitter Organic staging data to be written to, add the following configuration to your `dbt_project.yml` file:
+## (Optional) Step 5: Orchestrate your models with Fivetran Transformations for dbt Core™
+<details><summary>Expand for configurations</summary>
+<br>
+Fivetran offers the ability for you to orchestrate your dbt project through the [Fivetran Transformations for dbt Core™](https://fivetran.com/docs/transformations/dbt) product. Refer to the linked docs for more information on how to setup your project for orchestration through Fivetran. 
+</details>
 
+# 🔍 Does this package have dependencies?
+This dbt package is dependent on the following dbt packages. Please be aware that these dependencies are installed by default within this package. For more information on the following packages, refer to the [dbt hub](https://hub.getdbt.com/) site.
+> IMPORTANT: If you have any of these dependent packages in your own `packages.yml` file, we highly recommend that you remove them from your root `packages.yml` to avoid package version conflicts.
+    
 ```yml
-# dbt_project.yml
+packages:
+    - package: fivetran/twitter_organic_source
+      version: [">=0.2.0", "<0.3.0"]
 
-...
-models:
-    twitter_organic:
-      +schema: my_new_schema_name # leave blank for just the target_schema
-    twitter_organic_source:
-      +schema: my_new_schema_name # leave blank for just the target_schema
+    - package: fivetran/fivetran_utils
+      version: [">=0.4.0", "<0.5.0"]
+
+    - package: dbt-labs/dbt_utils
+      version: [">=1.0.0", "<2.0.0"]
+
+    - package: dbt-labs/spark_utils
+      version: [">=0.3.0", "<0.4.0"]
 ```
+
+# 🙌 How is this package maintained and can I contribute?
+## Package Maintenance
+The Fivetran team maintaining this package **only** maintains the latest version of the package. We highly recommend you stay consistent with the [latest version](https://hub.getdbt.com/fivetran/twitter_organic/latest/) of the package and refer to the [CHANGELOG](https://github.com/fivetran/dbt_twitter_organic/blob/main/CHANGELOG.md) and release notes for more information on changes across versions.
 
 ## Contributions
+These dbt packages are developed by a small team of analytics engineers at Fivetran. However, the packages are made better by community contributions! 
 
-Don't see a model or specific metric you would like to be included? Notice any bugs when installing and running the package? If so, we highly encourage and welcome contributions to this package! 
-Please create issues or open PRs against `main`. See [the Discourse post](https://discourse.getdbt.com/t/contributing-to-a-dbt-package/657) for information on how to contribute to a package.
+We highly encourage and welcome contributions to this package. Check out [this post](https://discourse.getdbt.com/t/contributing-to-a-dbt-package/657) on the best workflow for contributing to a package!
 
-## Database Support
-
-This package has been tested on BigQuery, Snowflake, Redshift, Postgres, and Databricks.
-
-### Databricks Dispatch Configuration
-dbt `v0.20.0` introduced a new project-level dispatch configuration that enables an "override" setting for all dispatched macros. If you are using a Databricks destination with this package you will need to add the below (or a variation of the below) dispatch configuration within your `dbt_project.yml`. This is required in order for the package to accurately search for macros within the `dbt-labs/spark_utils` then the `dbt-labs/dbt_utils` packages respectively.
-```yml
-# dbt_project.yml
-
-dispatch:
-  - macro_namespace: dbt_utils
-    search_order: ['spark_utils', 'dbt_utils']
-```
-
-## Resources:
-- Provide [feedback](https://www.surveymonkey.com/r/DQ7K7WW) on our existing dbt packages or what you'd like to see next
-- Have questions or feedback, or need help? Book a time during our office hours [here](https://calendly.com/fivetran-solutions-team/fivetran-solutions-team-office-hours) or email us at solutions@fivetran.com.
-- Find all of Fivetran's pre-built dbt packages in our [dbt hub](https://hub.getdbt.com/fivetran/)
-- Learn how to orchestrate your models with [Fivetran Transformations for dbt Core™](https://fivetran.com/docs/transformations/dbt)
-- Learn more about Fivetran overall [in our docs](https://fivetran.com/docs)
-- Check out [Fivetran's blog](https://fivetran.com/blog)
-- Learn more about dbt [in the dbt docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [chat](http://slack.getdbt.com/) on Slack for live discussions and support
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the dbt blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+# 🏪 Are there any resources available?
+- If you encounter any questions or want to reach out for help, please refer to the [GitHub Issue](https://github.com/fivetran/dbt_twitter_organic/issues/new/choose) section to find the right avenue of support for you.
+- If you would like to provide feedback to the dbt package team at Fivetran, or would like to request a future dbt package to be developed, then feel free to fill out our [Feedback Form](https://www.surveymonkey.com/r/DQ7K7WW).
+- Have questions or want to just say hi? Book a time during our office hours [here](https://calendly.com/fivetran-solutions-team/fivetran-solutions-team-office-hours) or send us an email at solutions@fivetran.com.
