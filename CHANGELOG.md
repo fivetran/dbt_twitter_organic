@@ -1,9 +1,8 @@
 # dbt_twitter_organic v0.UPDATE.UPDATE
 
- ## Under the Hood:
-
-- Incorporated the new `fivetran_utils.drop_schemas_automation` macro into the end of each Buildkite integration test job.
-- Updated the pull request [templates](/.github).
+## Under the Hood:
+- Incorporated the new `fivetran_utils.drop_schemas_automation` macro into the end of each Buildkite integration test job. ([#7](https://github.com/fivetran/dbt_twitter_organic/pull/7))
+- Updated the pull request [templates](/.github). ([#7](https://github.com/fivetran/dbt_twitter_organic/pull/7))
 # dbt_twitter_organic v0.2.0
 
 ## 🚨 Breaking Changes 🚨:
