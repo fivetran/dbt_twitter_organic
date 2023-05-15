@@ -47,8 +47,9 @@ Include the following Twitter Organic package version in your `packages.yml`
 ```yaml
 packages:
   - package: fivetran/twitter_organic
-    version: [">=0.2.0", "<0.3.0"]
+    version: [">=0.2.0", "<0.3.0"] # we recommend using ranges to capture non-breaking changes automatically
 ```
+Do NOT include the `twitter_organic_source` package in this file. The transformation package itself has a dependency on it and will install the source package as well.
 
 ## Step 3: Configure Your Variables
 ### Database and Schema Variables
