@@ -7,7 +7,7 @@ with accounts as (
 
     select 
         *,
-        row_number() over (partition by account_id, source_relation order by _fivetran_synced desc) = 1 as is_most_recent_record
+        row_number() over (partition by account_id {{ ", source_relation" if var('twitter_organic_union_schemas', []) or var('twitter_organic_union_databases', [])  | length > 1 }} order by _fivetran_synced desc) = 1 as is_most_recent_record
     from accounts
 
 )
