@@ -1,5 +1,5 @@
 name: 'twitter_organic_integration_tests'
-version: '0.2.0'
+version: '0.3.0'
 profile: 'integration_tests'
 config-version: 2
 
@@ -11,9 +11,8 @@ vars:
     twitter_organic_twitter_user_history_identifer: "twitter_organic_twitter_user_history_data"
     twitter_organic_schema: twitter_organic_integration_tests_1
 
-models: 
-  twitter_organic_source:
-    +materialized: table
+models:
+  +schema: "twitter_organic_{{ var('directed_schema','dev') }}"
 
 seeds:
   twitter_organic_integration_tests:

@@ -54,13 +54,13 @@ Include the following Twitter Organic package version in your `packages.yml`
 ```yaml
 packages:
   - package: fivetran/twitter_organic
-    version: [">=0.2.0", "<0.3.0"] # we recommend using ranges to capture non-breaking changes automatically
+    version: [">=0.3.0", "<0.4.0"] # we recommend using ranges to capture non-breaking changes automatically
 ```
 Do NOT include the `twitter_organic_source` package in this file. The transformation package itself has a dependency on it and will install the source package as well.
 
 ## Step 3: Configure Your Variables
 ### Database and Schema Variables
-By default, this package will look for your Twitter Organic data in the `twitter_organic` schema of your [target database](https://docs.getdbt.com/docs/running-a-dbt-project/using-the-command-line-interface/configure-your-profile). If this is not where your Twitter Organic data is, add the following configuration to your `dbt_project.yml` file:
+By default, this package will look for your Twitter Organic data in the `twitter` schema of your [target database](https://docs.getdbt.com/docs/running-a-dbt-project/using-the-command-line-interface/configure-your-profile). If this is not where your Twitter Organic data is, add the following configuration to your `dbt_project.yml` file:
 
 ```yml
 vars:
@@ -120,7 +120,7 @@ This dbt package is dependent on the following dbt packages. Please be aware tha
 ```yml
 packages:
     - package: fivetran/twitter_organic_source
-      version: [">=0.2.0", "<0.3.0"]
+      version: [">=0.3.0", "<0.4.0"]
 
     - package: fivetran/fivetran_utils
       version: [">=0.4.0", "<0.5.0"]
