@@ -10,6 +10,6 @@
     {%- if is_empty == "True" %}
         {{ if_empty }}
     {%- else %}
-        {{ partition_statement }}
+        {{ result_statement }}
     {%- endif %}
 {%- endmacro %}
