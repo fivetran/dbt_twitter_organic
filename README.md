@@ -69,7 +69,7 @@ vars:
 ```
 
 ## (Optional) Step 4: Additional Configurations
-<details><summary>Expand for configurations</summary>
+<details open><summary>Expand for configurations</summary>
 
 ### Change the Build Schema
 By default, this package builds the GitHub staging models within a schema titled (<target_schema> + `_stg_twitter_organic`) in your target database. If this is not where you would like your GitHub staging data to be written to, add the following configuration to your root `dbt_project.yml` file:
@@ -88,7 +88,7 @@ If an individual source table has a different name than the package expects, add
     
 ```yml
 vars:
-    twitter_organic_<default_source_table_name>_identifier: your_table_name 
+    twitter_<default_source_table_name>_identifier: your_table_name 
 ```
 
 ### Unioning Multiple Twitter Organic Connectors
@@ -144,4 +144,3 @@ We highly encourage and welcome contributions to this package. Check out [this p
 # 🏪 Are there any resources available?
 - If you encounter any questions or want to reach out for help, please refer to the [GitHub Issue](https://github.com/fivetran/dbt_twitter_organic/issues/new/choose) section to find the right avenue of support for you.
 - If you would like to provide feedback to the dbt package team at Fivetran, or would like to request a future dbt package to be developed, then feel free to fill out our [Feedback Form](https://www.surveymonkey.com/r/DQ7K7WW).
-- Have questions or want to just say hi? Book a time during our office hours [here](https://calendly.com/fivetran-solutions-team/fivetran-solutions-team-office-hours) or send us an email at solutions@fivetran.com.
