@@ -1,6 +1,6 @@
 # dbt_twitter_organic v0.3.0
 
-## Upstream Breaking Changes
+## Upstream Breaking Changes 
 [PR #12](https://github.com/fivetran/dbt_twitter_organic_source/pull/12) from the upstream `dbt_twitter_organic_source` package includes the following breaking change updates:
 
 - The source defined in the `src_twitter_organic.yml` file has been renamed from `twitter_organic` to `twitter` to align with the default schema name used by the upstream Fivetran connector.
