@@ -26,7 +26,7 @@
 | `twitter_twitter_user_history_identifier` | `twitter_organic_twitter_user_history_identifer` |
 
 ## Bug Fixes
-- Updated the `is_most_recent_record` window function in the following models to exclude the `source_relation` field from the partition statement when `twitter_organic_union_schemas` or `twitter_organic_union_databases` variables are empty. Also, modified it to skip the window function if the upstream table is empty, using the new `window_function_if_table_exists()` macro. This change addresses Redshift's issue with partitioning by constant expressions. ([PR #11](https://github.com/fivetran/dbt_twitter_organic/pull/11))
+- Updated the `is_most_recent_record` window function in the following models to exclude the `source_relation` field from the partition statement when `twitter_organic_union_schemas` or `twitter_organic_union_databases` variables are empty. Also, modified it to skip the window function if the upstream table is empty, using the new `window_function_if_table_exists()` and `is_table_empty()` macros. This change addresses Redshift's issue with partitioning by constant expressions. ([PR #11](https://github.com/fivetran/dbt_twitter_organic/pull/11))
     - `int_twitter_organic__latest_account`
     - `int_twitter_organic__latest_user`
 

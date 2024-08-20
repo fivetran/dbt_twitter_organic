@@ -13,14 +13,8 @@
         {% if results %}
             {% set row_count = results.columns[0][0] %}
             {% if row_count == 0 %}
-                {{ return(true) }}
-            {% else %}
-                {{ return(false) }}
+                {{ return("empty") }}
             {% endif %}
-        {% else %}
-            {{ return(false) }}
         {% endif %}
-        {% else %}
-            {{ return(false) }}
     {% endif -%}
 {%- endmacro -%}
