@@ -31,6 +31,7 @@
     - `int_twitter_organic__latest_user`
 
 ## Under the Hood
+- Included auto-releaser GitHub Actions workflow to automate future releases. 
 - Consistency validations for integration tests has been added for the `twitter_organic__tweets` model. ([PR #11](https://github.com/fivetran/dbt_twitter_organic/pull/11))
 - Renamed the seed files to allow for more testing functionality. ([PR #11](https://github.com/fivetran/dbt_twitter_organic/pull/11))
 - Updated the maintainer PR, Issue, Feature Request, and Config templates to resemble the most up to date format. ([PR #11](https://github.com/fivetran/dbt_twitter_organic/pull/11))
