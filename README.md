@@ -25,9 +25,9 @@ The main focus of the package is to transform the core social media object table
 
 This package also generates a comprehensive data dictionary of your source and modeled Twitter Organic data via the [dbt docs site](https://fivetran.github.io/dbt_twitter_organic/).
 
-You can also refer to the table below for a detailed view of all models materialized by default within this package.
+You can also refer to the table below for a detailed view of all tables materialized by default within this package.
 
-| **model**                    | **description**                                                                                                        |
+| **Table**                    | **Description**                                                                                                        |
 | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
 | [twitter_organic__tweets](https://github.com/fivetran/dbt_twitter_organic/blob/main/models/twitter_organic__tweets.sql)         | Each record represents the daily performance of a tweet. |
 
