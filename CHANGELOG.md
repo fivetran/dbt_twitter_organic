@@ -1,3 +1,9 @@
+# dbt_twitter_organic version.version
+
+## Documentation
+- Added Quickstart model counts to README. ([#15](https://github.com/fivetran/dbt_twitter_organic/pull/15))
+- Corrected references to connectors and connections in the README. ([#15](https://github.com/fivetran/dbt_twitter_organic/pull/15))
+
 # dbt_twitter_organic v0.3.0
 
 ## Upstream Breaking Changes 
