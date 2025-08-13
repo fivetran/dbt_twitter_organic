@@ -1,8 +1,3 @@
-* Deprecation Warning: The "packages" argument of adapter.dispatch() has been
-deprecated. Use the "macro_namespace" argument instead.
-Raised during dispatch for: percentile
-For more information, see:
-https://docs.getdbt.com/reference/dbt-jinja-functions/dispatch
 {% macro get_twitter_user_history_columns() %}
 
 {% set columns = [
