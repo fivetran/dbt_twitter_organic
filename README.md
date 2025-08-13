@@ -1,5 +1,5 @@
 
-# Twitter Organic Modeling dbt Package ([Docs](https://fivetran.github.io/dbt_twitter_organic/))
+# Twitter Organic dbt Package ([Docs](https://fivetran.github.io/dbt_twitter_organic/))
 
 <p align="left">
     <a alt="License"
