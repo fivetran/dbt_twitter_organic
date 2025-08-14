@@ -14,7 +14,7 @@ models:
     +schema: twitter_organic
     +materialized: table
     staging:
-      +schema: twitter_ads_source
+      +schema: stg_twitter_organic
       +materialized: view
       tmp:
         +materialized: table

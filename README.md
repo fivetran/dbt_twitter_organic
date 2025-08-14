@@ -59,7 +59,7 @@ packages:
   - package: fivetran/twitter_organic
     version: [">=0.3.0", "<0.4.0"] # we recommend using ranges to capture non-breaking changes automatically
 ```
-> All required sources and staging models are now bundled into this transformation package. Do not include `fivetran/twitter_ads_source` in your `packages.yml` since this package has been deprecated.
+> All required sources and staging models are now bundled into this transformation package. Do not include `fivetran/twitter_organic_source` in your `packages.yml` since this package has been deprecated.
 
 ### Step 3: Configure Your Variables
 #### Database and Schema Variables
@@ -79,7 +79,7 @@ By default, this package builds the GitHub staging models within a schema titled
 
 ```yml 
 models:
-    twitter_ads:
+    twitter_organic:
       +schema: my_new_schema_name # Leave +schema: blank to use the default target_schema.
       staging:
         +schema: my_new_schema_name # Leave +schema: blank to use the default target_schema.
