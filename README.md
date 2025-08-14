@@ -75,7 +75,7 @@ vars:
 <details open><summary>Expand for configurations</summary>
 
 #### Change the Build Schema
-By default, this package builds the GitHub staging models within a schema titled (<target_schema> + `_stg_twitter_organic`) in your target database. If this is not where you would like your GitHub staging data to be written to, add the following configuration to your root `dbt_project.yml` file:
+By default, this package builds the Twitter Organic staging models within a schema titled (<target_schema> + `_stg_twitter_organic`) and the Twitter Organic end models in a schema titled (<target_schema> + `twitter_organic`) in your target database. If this is not where you would like your Twitter Organic data to be written to, add the following configuration to your root `dbt_project.yml` file:
 
 ```yml 
 models:
