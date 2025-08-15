@@ -1,5 +1,5 @@
 name: 'twitter_organic_integration_tests'
-version: '0.3.0'
+version: '1.0.0'
 profile: 'integration_tests'
 config-version: 2
 
@@ -14,6 +14,8 @@ models:
   +schema: "twitter_organic_{{ var('directed_schema','dev') }}"
 
 seeds:
+  +docs:
+    show: False
   twitter_organic_integration_tests:
     tweet:
       +column_types:
@@ -21,3 +23,7 @@ seeds:
     organic_tweet_report:
       +column_types:
         organic_tweet_id: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"
+
+flags:
+  send_anonymous_usage_stats: False
+  use_colors: True

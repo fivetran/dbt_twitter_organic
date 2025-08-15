@@ -9,14 +9,14 @@ with account_history as (
 organic_tweet_report as (
 
     select *
-    from {{ var('organic_tweet_report_staging') }}
+    from {{ ref('stg_twitter_organic__organic_tweet_report') }}
 
 ),
 
 tweet as (
 
     select *
-    from {{ var('tweet_staging') }}
+    from {{ ref('stg_twitter_organic__tweet') }}
 
 ), 
 
