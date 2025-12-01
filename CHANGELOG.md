@@ -1,9 +1,8 @@
 # dbt_twitter_organic v1.1.0
-
 [PR #20](https://github.com/fivetran/dbt_twitter_organic/pull/20) includes the following updates:
 
 ## Features
-  - Increases the required dbt version upper limit to v3.0.0
+- Increases the required dbt version upper limit to v3.0.0.
 
 # dbt_twitter_organic v1.0.0
 
