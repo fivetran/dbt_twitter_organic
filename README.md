@@ -22,8 +22,8 @@ This dbt package transforms data from Fivetran's Twitter Organic connector into 
 
 - Number of materialized models¹: 11
 - Connector documentation
-  - [Twitter Organic connector documentation](https://fivetran.com/docs/connectors/applications/twitter-organic)
-  - [Twitter Organic ERD](https://fivetran.com/docs/connectors/applications/twitter-organic#schemainformation)
+  - [Twitter Organic connector documentation](https://fivetran.com/docs/connectors/applications/twitter)
+  - [Twitter Organic ERD](https://docs.google.com/presentation/d/1gNGe510SGyMJsuATCjjTuNrik0y8EgDOHJcZKKd165E/edit?usp=sharing)
 - dbt package documentation
   - [GitHub repository](https://github.com/fivetran/dbt_twitter_organic)
   - [dbt Docs](https://fivetran.github.io/dbt_twitter_organic/#!/overview)
@@ -48,7 +48,7 @@ By default, this package materializes the following final tables:
 
 | Table | Description |
 | :---- | :---- |
-| [twitter_organic__tweets](https://github.com/fivetran/dbt_twitter_organic/blob/main/models/twitter_organic__tweets.sql) | Tracks daily performance metrics for your organic tweets to measure engagement, reach, and audience interaction patterns on Twitter/X. <br></br>**Example Analytics Questions:**<ul><li>Which tweets generate the highest engagement rates (likes, retweets, replies) by content type or hashtag?</li><li>How does tweet performance vary by day of week or time of posting?</li><li>What types of content drive the most impressions and profile visits?</li></ul>|
+| [twitter_organic__tweets](https://fivetran.github.io/dbt_twitter_organic/#!/model/model.twitter_organic.twitter_organic__tweets) | Tracks daily performance metrics for your organic tweets to measure engagement, reach, and audience interaction patterns on Twitter/X. <br></br>**Example Analytics Questions:**<ul><li>Which tweets generate the highest engagement rates (likes, retweets, replies) by content type or hashtag?</li><li>How does tweet performance vary by day of week or time of posting?</li><li>What types of content drive the most impressions and profile visits?</li></ul>|
 
 ¹ Each Quickstart transformation job run materializes these models if all components of this data model are enabled. This count includes all staging, intermediate, and final models materialized as `view`, `table`, or `incremental`.
 
@@ -73,7 +73,7 @@ Include the following Twitter Organic package version in your `packages.yml`
 ```yaml
 packages:
   - package: fivetran/twitter_organic
-    version: [">=1.2.0", "<1.3.0"] # we recommend using ranges to capture non-breaking changes automatically
+    version: [">=1.1.0", "<1.2.0"] # we recommend using ranges to capture non-breaking changes automatically
 ```
 > All required sources and staging models are now bundled into this transformation package. Do not include `fivetran/twitter_organic_source` in your `packages.yml` since this package has been deprecated.
 
