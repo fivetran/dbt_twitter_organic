@@ -1,3 +1,9 @@
+# dbt_twitter_organic v0.4.0
+[PR #21](https://github.com/fivetran/dbt_facebook_pages/pull/21) includes the following update:
+
+## Documentation
+- Updates README with standardized Fivetran formatting.
+
 # dbt_twitter_organic version.version
 
 ## Documentation
