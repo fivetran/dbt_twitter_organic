@@ -11,6 +11,9 @@ vars:
   twitter_organic_schema: twitter_organic_integration_tests_1
 
 models:
+  +persist_docs:
+    relation: true
+    columns: "{{ false if target.type in ('databricks') else true }}"
   +schema: "twitter_organic_{{ var('directed_schema','dev') }}"
 
 seeds:
