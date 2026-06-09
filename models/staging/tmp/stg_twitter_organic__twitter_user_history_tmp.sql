@@ -18,7 +18,7 @@
 {{
     fivetran_utils.union_connections(
         connection_dictionary='twitter_organic_sources',
-        single_source_name='twitter_organic',
+        single_source_name='twitter',
         single_table_name='twitter_user_history'
     )
 }}
