@@ -74,8 +74,6 @@ dispatch:
     search_order: ['spark_utils', 'dbt_utils']
 ```
 
-### Configure Your Variables
-
 ### Define database and schema variables
 #### Option A: Single connection
 By default, this package runs using your destination and the `twitter_organic` schema. If this is not where your Twitter Organic data is (for example, if your Twitter Organic schema is named `twitter_organic_fivetran`), add the following configuration to your root `dbt_project.yml` file:

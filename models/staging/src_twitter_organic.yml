@@ -7,7 +7,7 @@ sources:
     loader: Fivetran
 
     config:
-      enabled: "{{ var('twitter_sources', []) == [] }}"
+      enabled: "{{ var('twitter_organic_sources', []) == [] }}"
       loaded_at_field: _fivetran_synced
 
     tables:
