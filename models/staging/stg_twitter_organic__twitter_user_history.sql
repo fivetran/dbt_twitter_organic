@@ -1,4 +1,3 @@
-
 with base as (
 
     select * 
@@ -16,10 +15,7 @@ fields as (
             )
         }}
 
-        {{ fivetran_utils.source_relation(
-            union_schema_variable='twitter_organic_union_schemas', 
-            union_database_variable='twitter_organic_union_databases') 
-        }}
+        {{ fivetran_utils.apply_source_relation(package_name='twitter_organic') }}
         
     from base
 ),

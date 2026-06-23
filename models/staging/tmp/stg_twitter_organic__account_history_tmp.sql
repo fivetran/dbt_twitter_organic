@@ -1,3 +1,5 @@
+{% if var('twitter_organic_union_schemas', []) | length > 0 or var('twitter_organic_union_databases', []) | length > 0 %}
+
 {{
     fivetran_utils.union_data(
         table_identifier='account_history', 
@@ -10,3 +12,15 @@
         union_database_variable='twitter_organic_union_databases'
     )
 }}
+
+{% else %}
+
+{{
+    fivetran_utils.union_connections(
+        connection_dictionary='twitter_organic_sources',
+        single_source_name='twitter',
+        single_table_name='account_history'
+    )
+}}
+
+{% endif %}
