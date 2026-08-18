@@ -1,3 +1,11 @@
+# dbt_twitter_organic v1.2.1
+
+[PR #29](https://github.com/fivetran/dbt_twitter_organic/pull/29) includes the following updates:
+
+## Feature Updates
+- Adds DuckDB as a supported destination.
+
+
 # dbt_twitter_organic v1.2.0
 
 [PR #26](https://github.com/fivetran/dbt_twitter_organic/pull/26) includes the following updates:
