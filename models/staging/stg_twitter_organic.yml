@@ -3,6 +3,13 @@ version: 2
 models:
   - name: stg_twitter_organic__account_history
     description: Each record represents a version of a Twitter ad account.
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - source_relation
+              - account_id
+              - updated_timestamp
     columns:
       - name: _fivetran_synced
         description: "{{ doc('_fivetran_synced') }}"
@@ -35,6 +42,15 @@ models:
 
   - name: stg_twitter_organic__organic_tweet_report
     description: Each record represents metrics about a tweet on a specific date.
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - source_relation
+              - account_id
+              - organic_tweet_id
+              - date_day
+              - placement
     columns:
       - name: _fivetran_synced
         description: "{{ doc('_fivetran_synced') }}"
@@ -101,6 +117,12 @@ models:
 
   - name: stg_twitter_organic__tweet
     description: Each record represents a tweet in Twitter
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - source_relation
+              - organic_tweet_id
     columns: 
       - name: _fivetran_synced
         description: "{{ doc('_fivetran_synced') }}"
@@ -153,6 +175,13 @@ models:
 
   - name: stg_twitter_organic__twitter_user_history
     description: Each record represents a version of a Twitter user.
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - source_relation
+              - user_id
+              - _fivetran_synced
     columns:
       - name: _fivetran_synced
         description: "{{ doc('_fivetran_synced') }}"
