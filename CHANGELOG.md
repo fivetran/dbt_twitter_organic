@@ -1,3 +1,13 @@
+# dbt_twitter_organic v1.2.2
+
+[PR #31](https://github.com/fivetran/dbt_twitter_organic/pull/31) includes the following updates:
+
+## Under the Hood
+- Updates the staging and source yml documentation so the documented columns match the columns the models output.
+  - Adds documentation for the `coordinates_coordinates`, `coordinates_type`, `geo_coordinates`, and `geo_type` fields in the `stg_twitter_organic__tweet` model.
+  - Adds documentation for the `placement` and `tweets_send` fields in the `stg_twitter_organic__organic_tweet_report` model.
+  - Removes documentation for the `approval_status` and `salt` fields, which the `stg_twitter_organic__account_history` model does not output.
+
 # dbt_twitter_organic v1.2.1
 
 [PR #29](https://github.com/fivetran/dbt_twitter_organic/pull/29) includes the following updates:
