@@ -6,8 +6,6 @@ models:
     columns:
       - name: _fivetran_synced
         description: "{{ doc('_fivetran_synced') }}"
-      - name: approval_status
-        description: Approval status of the account in Twitter
       - name: business_id
         description: ID of the associated business in Twitter
       - name: business_name
@@ -24,8 +22,6 @@ models:
         description: Industry type of the account in Twitter
       - name: account_name
         description: Name of the account in Twitter
-      - name: salt
-        description: Salt used to generate the account's unique ID
       - name: timezone
         description: Timezone of the account in Twitter
       - name: updated_timestamp
@@ -64,6 +60,8 @@ models:
         description: ID of the tweet in Twitter
         tests:
           - not_null
+      - name: placement
+        description: "{{ doc('placement') }}"
       - name: poll_card_vote
         description: Number of votes on poll cards
       - name: qualified_impressions
@@ -72,6 +70,8 @@ models:
         description: Number of replies on tweet
       - name: retweets
         description: Number of retweets on tweet
+      - name: tweets_send
+        description: "{{ doc('tweets_send') }}"
       - name: unfollows
         description: Number of unfollows as a result of the tweet
       - name: url_clicks
@@ -110,6 +110,10 @@ models:
           - not_null
       - name: card_uri
         description: URI of the associated card in Twitter
+      - name: coordinates_coordinates
+        description: "{{ doc('coordinates_coordinates') }}"
+      - name: coordinates_type
+        description: "{{ doc('coordinates_type') }}"
       - name: created_timestamp
         description: Date and time when the tweet was created
       - name: favorite_count
@@ -120,6 +124,10 @@ models:
         description: Number of followers the tweet generated
       - name: tweet_text
         description: The full text of the tweet
+      - name: geo_coordinates
+        description: "{{ doc('geo_coordinates') }}"
+      - name: geo_type
+        description: "{{ doc('geo_type') }}"
       - name: organic_tweet_id
         description: The ID of the tweet in Twitter
         tests:
