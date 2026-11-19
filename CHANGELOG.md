@@ -7,10 +7,11 @@
 - Adds `dbt_utils.unique_combination_of_columns` tests to staging and end models. If a test fails, please [open an issue](https://github.com/fivetran/dbt_twitter_organic/issues/new/choose).
 
 ## Under the Hood
-- Updates the staging and source yml documentation so the documented columns match the columns the models output.
-  - Adds documentation for the `coordinates_coordinates`, `coordinates_type`, `geo_coordinates`, and `geo_type` fields in the `stg_twitter_organic__tweet` model.
-  - Adds documentation for the `placement` and `tweets_send` fields in the `stg_twitter_organic__organic_tweet_report` model.
-  - Removes documentation for the `approval_status` and `salt` fields, which the `stg_twitter_organic__account_history` model does not output.
+- Removes `approval_status` and `salt` from the `stg_twitter_organic__account_history` model of the `stg_twitter_organic.yml` file.
+- Adds `placement` and `tweets_send` to the `stg_twitter_organic__organic_tweet_report` model of the `stg_twitter_organic.yml` file.
+- Adds `coordinates_coordinates`, `coordinates_type`, `geo_coordinates`, and `geo_type` to the `stg_twitter_organic__tweet` model of the `stg_twitter_organic.yml` file.
+- Adds `placement` and `tweets_send` to the `organic_tweet_report` source table of the `src_twitter_organic.yml` file.
+- Adds `coordinates_coordinates`, `coordinates_type`, `geo_coordinates`, and `geo_type` to the `tweet` source table of the `src_twitter_organic.yml` file.
 
 # dbt_twitter_organic v1.2.1
 
