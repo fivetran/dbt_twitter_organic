@@ -157,7 +157,7 @@ sources:
             description: The ID of the user who tweeted the tweet
       - name: twitter_user_history
         identifier: "{{ var('twitter_twitter_user_history_identifier', 'twitter_user_history')}}"  
-        description: Each record represents a version of a Twitter user.
+        description: Each record represents a Twitter user.
         columns:
           - name: _fivetran_synced
             description: "{{ doc('_fivetran_synced') }}"
