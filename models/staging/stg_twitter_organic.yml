@@ -23,7 +23,7 @@ models:
         description: Whether the account has been deleted
       - name: account_id
         description: ID of the account in Twitter
-        tests:
+        data_tests:
           - not_null
       - name: industry_type
         description: Industry type of the account in Twitter
@@ -52,7 +52,7 @@ models:
         description: "{{ doc('_fivetran_synced') }}"
       - name: account_id
         description: ID of the associated account in Twitter
-        tests:
+        data_tests:
           - not_null
       - name: app_clicks
         description: Number of clicks on app install campaigns
@@ -74,7 +74,7 @@ models:
         description: Number of likes on tweet
       - name: organic_tweet_id
         description: ID of the tweet in Twitter
-        tests:
+        data_tests:
           - not_null
       - name: placement
         description: "{{ doc('placement') }}"
@@ -128,7 +128,7 @@ models:
         description: "{{ doc('_fivetran_synced') }}"
       - name: account_id
         description: ID of the associated account in Twitter
-        tests:
+        data_tests:
           - not_null
       - name: card_uri
         description: URI of the associated card in Twitter
@@ -152,7 +152,7 @@ models:
         description: "{{ doc('geo_type') }}"
       - name: organic_tweet_id
         description: The ID of the tweet in Twitter
-        tests:
+        data_tests:
           - not_null
       - name: post_url
         description: URL of the tweet
@@ -200,7 +200,7 @@ models:
         description: Number of followers the user has
       - name: user_id
         description: The ID of the user in Twitter
-        tests:
+        data_tests:
           - not_null
       - name: user_location
         description: The location of the user's account
