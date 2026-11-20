@@ -1,3 +1,14 @@
+# dbt_twitter_organic v1.3.0
+
+[PR #32](https://github.com/fivetran/dbt_twitter_organic/pull/32) includes the following updates:
+
+## Feature Update
+- Raises the minimum dbt version to 1.10.0.
+- Adds `dbt_utils.unique_combination_of_columns` tests to staging and end models. If a test fails, please [open an issue](https://github.com/fivetran/dbt_twitter_organic/issues/new/choose).
+
+## Under the Hood
+- Updates yml column documentation to match model output.
+
 # dbt_twitter_organic v1.2.1
 
 [PR #29](https://github.com/fivetran/dbt_twitter_organic/pull/29) includes the following updates:
